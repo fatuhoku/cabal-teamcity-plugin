@@ -1,0 +1,17 @@
+*.swp
+*.swo
+*.swn
+*.o
+*.hi
+*.orig
+*.bak
+worlds
+session.lock
+dist/
+build/
+.DS_Store
+.git/
+*.class
+out/
+*.iws
+build.properties
