@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Cabal TeamCity Build Runner Plugin : (Relatively) painless continuous integration for Haskell powered by TeamCity." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Cabal TeamCity Build Runner Plugin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/fushunpoon/Cabal-TeamCity-build-runner-plugin">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Cabal TeamCity Build Runner Plugin</h1>
+          <h2 id="project_tagline">(Relatively) painless continuous integration for Haskell powered by TeamCity.</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/fushunpoon/Cabal-TeamCity-build-runner-plugin/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/fushunpoon/Cabal-TeamCity-build-runner-plugin/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Description</h3>
+
+<p><a href="http://www.jetbrains.com/teamcity/" title="TeamCity main website (JetBrains)">TeamCity</a> is a continuous integration server. <a href="http://www.haskell.org/cabal/" title="Haskell Cabal main website">Cabal</a> is a build and
+package manager for <a href="http://www.haskell.org/" title="Haskell main website">Haskell</a> programs and libraries. Even though you can quite easily invoke a build of a Cabalised Haskell program by running <code>cabal-install</code> through the command line runner, common operations such as managing and editing of build parameters or digging through long build logs can be a bit of a pain.</p>
+
+<p>Cabal TeamCity Build Runner Plugin presents a tighter integration of the Cabal build process
+with TeamCity with these features:</p>
+
+<ul>
+<li>Effortless configuration: set up and configure a Cabal runner Build Step from a standard Build Configuration page</li>
+<li>Properties: the <code>cabal-install</code> tool's location and version are exposed as Agent Parameters, allowing you to discriminate between build agents by the version of <code>cabal-install</code>
+</li>
+<li>Hierarchical build log: it is now much easier to dig through heaps of build output,  thanks to TeamCity presenting the hierarchical structure as of the build log as a with the Tree View</li>
+<li>Basic test reporting: see the number of successful and failed QuickCheck, QuickCheck 2 and HUnit test runs at a glance for when your test-suite built with Max Bolingbroke's (<a href="https://github.com/batterseapower" class="user-mention">@batterseapower</a>) wonderful <code>test-framework</code> (site <a href="http://batterseapower.github.com/test-framework/" title="Test framework make site">here</a>)</li>
+</ul><p>Finally! Quick and easy Continuous Integration for Haskell!</p>
+
+<h3>Installation</h3>
+
+<p>To get the plugin running, simply download <code>cabalRunner.jar</code> from the <a href="https://github.com/fushunpoon/Cabal-TeamCity-build-runner-plugin/downloads" title="Project download page">Downloads section</a>
+and drop it into your <code>~teamcity/.BuildServer/plugins</code> directory, where <code>~teamcity</code> is the home directory
+of the UNIX user used to run TeamCity Server, or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> directory under Windows.</p>
+
+<h3>Upgrading</h3>
+
+<p>When you would like to upgrade to a newer version of the plugin where a previous version of the
+plugin has been installed already, simply overwrite the existing <code>cabalRunner.zip</code> file with the latest
+released zip file.</p>
+
+<p>TeamCity Server sees the change, and will <em>automatically trigger an Agent-side upgrade</em> for the plugin.
+TeamCity Server however will not upgrade the plugin unless you restart it, so be sure to do that
+to ensure new version of the plugin becomes activated.</p>
+
+<hr><h3>Contact</h3>
+
+<p>Cabal TeamCity Build Runner Plugin began as a very small hobby project, and was implemented in the space of a few days. In the likely even you find an issue, ping me on <a href="mailto:fushunpoon@googlemail.com">fushunpoon@googlemail.com</a>. We'll see what we can do from there.</p>
+
+<h3>Contributing</h3>
+
+<p>Cabal TeamCity Build Runner Plugin is actually a derived work of <a href="https://github.com/mcmarkb/Teamcity-unity3d-build-runner-plugin">Teamcity Unity3d Build Runner plugin</a> so I wish to give attribution to Mark Baker (<a href="https://github.com/mcmarkb" class="user-mention">@mcmarkb</a>) for laying the groundwork for this plugin.</p>
+
+<p>Please fork this project and help me improve it! Start by looking at some of
+the <a href="https://github.com/fushunpoon/Cabal-TeamCity-build-runner-plugin">known issues</a>
+section of the README. Thanks!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cabal TeamCity Build Runner Plugin maintained by <a href="https://github.com/fushunpoon">fushunpoon</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31097788-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
