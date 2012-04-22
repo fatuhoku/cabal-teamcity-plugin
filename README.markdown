@@ -1,6 +1,15 @@
 # Cabal Teamcity Build Runner Plugin
 (Relatively) painless continuous integration for Haskell.
 
+### Attribution
+
+This plugin started its life off as the [Teamcity Unity3D Build Runner
+Plugin](https://github.com/mcmarkb/Teamcity-unity3d-build-runner-plugin-on).
+Thanks to Mark Baker (@mcmarkb) for making that project!
+
+### License
+This plugin is distributed under the [MIT License](http://www.opensource.org/licenses/MIT).
+
 ### Known issues
 There are a good number of issues with this plugin which arise from a single
 implementation detail of the plugin.  All the trouble comes from the fact that
