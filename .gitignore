@@ -4,8 +4,9 @@
 *.iws
 *.o
 *.orig
-*.swp
+*.swn
 *.swo
+*.swp
 .DS_Store
 .git/
 build.properties
@@ -13,3 +14,4 @@ build/
 dist/
 out/
 session.lock
+worlds
