@@ -1,8 +1,7 @@
 # Cabal Teamcity Build Runner Plugin
-Painless continuous integration for Haskell.
+(Relatively) painless continuous integration for Haskell.
 
 ### Known issues
-
 There are a good number of issues with this plugin which arise from a single
 implementation detail of the plugin.  All the trouble comes from the fact that
 the plugin was written to be _unintrusive_ to either the Cabal or
@@ -30,5 +29,3 @@ lines on the build log. While every care has been made to ensure that
 passing and failing test runs, test groups and test suites are detected
 correctly, any changes in the format of test-framework's build output will
 cause this plugin to behave abnormally as it fails to match lines it is expecting.
-
-
