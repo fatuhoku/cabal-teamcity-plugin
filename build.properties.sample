@@ -1,0 +1,23 @@
+# Build properties
+# ===================================================================================
+# Both of the following properties must be set 
+#
+#    path.variable.teamcitydistribution
+#          Path to unpacked .tar.gz distribution or installed .exe distribution of
+#          TeamCity
+#
+# e.g.
+# path.variable.teamcitydistribution=/Applications/TeamCity
+#
+#    teamcity.data.path
+#          The path in which the build server stores all of its data. This is
+#          normally ~/.BuildServer
+#
+# e.g.
+# teamcity.data.path=/home/<<username>>/.BuildServer
+#
+
+# Property definitions
+# ===================================================================================
+# path.variable.teamcitydistribution=/Applications/TeamCity
+# teamcity.data.path=/home/<<username>>/.BuildServer

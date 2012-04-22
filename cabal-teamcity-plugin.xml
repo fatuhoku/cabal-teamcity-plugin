@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="cabalrunner" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+    <include name="**/?*.htm"/>
+    <include name="**/?*.jsp"/>
+    <include name="**/?*.js"/>
+    <include name="**/?*.exe"/>
+    <include name="**/?*.config"/>
+  </patternset>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.teamcity_open_api_agent.classpath">
+    <pathelement location="${path.variable.teamcitydistribution}/devPackage/agent-api.jar"/>
+  </path>
+  
+  <path id="library.teamcity_open_api_common.classpath">
+    <pathelement location="${path.variable.teamcitydistribution}/devPackage/common-api.jar"/>
+    <pathelement location="${path.variable.teamcitydistribution}/devPackage/runtime-util.jar"/>
+  </path>
+  
+  <path id="library.teamcity_open_api_server.classpath">
+    <pathelement location="${path.variable.teamcitydistribution}/devPackage/server-api.jar"/>
+  </path>
+  
+  <path id="library.teamcity_third-party_common.classpath">
+    <pathelement location="${path.variable.teamcitydistribution}/webapps/ROOT/WEB-INF/lib/annotations.jar"/>
+    <pathelement location="${path.variable.teamcitydistribution}/webapps/ROOT/WEB-INF/lib/openapi.jar"/>
+    <pathelement location="${path.variable.teamcitydistribution}/webapps/ROOT/WEB-INF/lib/spring.jar"/>
+    <pathelement location="${path.variable.teamcitydistribution}/webapps/ROOT/WEB-INF/lib/util.jar"/>
+  </path>
+    
+  <path id="library.classpath">
+      <pathelement location="${basedir}/lib/commons-io-2.1.jar"/>
+  </path>
+  
+  <path id="library.teamcity_third-party_server.classpath">
+    <pathelement location="${path.variable.teamcitydistribution}/webapps/ROOT/WEB-INF/lib/spring-webmvc.jar"/>
+  </path>
+  
+  <path id="library.tomcat.classpath">
+    <pathelement location="${path.variable.teamcitydistribution}/lib/servlet-api.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module CabalRunner-common -->
+  
+  <dirname property="module.cabalrunner-common.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.cabalrunner-common" value="${compiler.args}"/>
+  
+  <property name="cabalrunner-common.output.dir" value="${module.cabalrunner-common.basedir}/out/production/cabalrunner-common"/>
+  <property name="cabalrunner-common.testoutput.dir" value="${module.cabalrunner-common.basedir}/out/test/cabalrunner-common"/>
+  
+  <path id="cabalrunner-common.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cabalrunner-common.module.production.classpath">
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+  </path>
+  
+  <path id="cabalrunner-common.runtime.production.module.classpath">
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+  </path>
+  
+  <path id="cabalrunner-common.module.classpath">
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+  </path>
+  
+  <path id="cabalrunner-common.runtime.module.classpath">
+    <pathelement location="${cabalrunner-common.testoutput.dir}"/>
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cabalrunner-common">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cabalrunner-common">
+    <patternset refid="excluded.from.module.cabalrunner-common"/>
+  </patternset>
+  
+  <path id="cabalrunner-common.module.sourcepath">
+    <dirset dir="${module.cabalrunner-common.basedir}/common">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cabalrunner-common" depends="compile.module.cabalrunner-common.production,compile.module.cabalrunner-common.tests" description="Compile module cabalrunner-common"/>
+  
+  <target name="compile.module.cabalrunner-common.production" description="Compile module cabalrunner-common; production classes">
+    <mkdir dir="${cabalrunner-common.output.dir}"/>
+    <javac destdir="${cabalrunner-common.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.cabalrunner-common}"/>
+      <bootclasspath refid="cabalrunner-common.module.bootclasspath"/>
+      <classpath refid="cabalrunner-common.module.production.classpath"/>
+      <src refid="cabalrunner-common.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cabalrunner-common"/>
+    </javac>
+    
+    <copy todir="${cabalrunner-common.output.dir}">
+      <fileset dir="${module.cabalrunner-common.basedir}/common/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cabalrunner-common.tests" depends="compile.module.cabalrunner-common.production" description="compile module cabalrunner-common; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cabalrunner-common" description="cleanup module">
+    <delete dir="${cabalrunner-common.output.dir}"/>
+    <delete dir="${cabalrunner-common.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module cabalrunner-agent -->
+  
+  <dirname property="module.cabalrunner-agent.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.cabalrunner-agent" value="${compiler.args}"/>
+  <property name="cabalrunner-agent.relative.output.dir" value="out/production/cabalrunner-agent"/>
+  <property name="cabalrunner-agent.output.dir" value="${module.cabalrunner-agent.basedir}/${cabalrunner-agent.relative.output.dir}"/>
+  <property name="cabalrunner-agent.testoutput.dir" value="${module.cabalrunner-agent.basedir}/out/test/cabalrunner-agent"/>
+  
+  <path id="cabalrunner-agent.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cabalrunner-agent.module.production.classpath">
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.classpath"/>
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+  </path>
+  
+  <path id="cabalrunner-agent.runtime.production.module.classpath">
+    <pathelement location="${cabalrunner-agent.output.dir}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.classpath"/>
+    <path refid="cabalrunner-common.runtime.production.module.classpath"/>
+  </path>
+  
+  <path id="cabalrunner-agent.module.classpath">
+    <pathelement location="${cabalrunner-agent.output.dir}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.classpath"/>
+    <pathelement location="${cabalrunner-common.testoutput.dir}"/>
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+  </path>
+  
+  <path id="cabalrunner-agent.runtime.module.classpath">
+    <pathelement location="${cabalrunner-agent.testoutput.dir}"/>
+    <pathelement location="${cabalrunner-agent.output.dir}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.classpath"/>
+    <path refid="cabalrunner-common.runtime.module.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cabalrunner-agent">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cabalrunner-agent">
+    <patternset refid="excluded.from.module.cabalrunner-agent"/>
+  </patternset>
+  
+  <path id="cabalrunner-agent.module.sourcepath">
+    <dirset dir="${module.cabalrunner-agent.basedir}/agent">
+      <include name="src"/>
+      <include name="bin"/>
+    </dirset>
+  </path>
+  
+  <target name="compile.module.cabalrunner-agent" depends="compile.module.cabalrunner-agent.production,compile.module.cabalrunner-agent.tests" description="Compile module cabalrunner-agent"/>
+  
+  <target name="compile.module.cabalrunner-agent.production" depends="compile.module.cabalrunner-common" description="Compile module cabalrunner-agent; production classes">
+    <mkdir dir="${cabalrunner-agent.output.dir}"/>
+    <javac destdir="${cabalrunner-agent.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.cabalrunner-agent}"/>
+      <bootclasspath refid="cabalrunner-agent.module.bootclasspath"/>
+      <classpath refid="cabalrunner-agent.module.production.classpath"/>
+      <src refid="cabalrunner-agent.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cabalrunner-agent"/>
+    </javac>
+    
+    <copy todir="${cabalrunner-agent.output.dir}">
+      <fileset dir="${module.cabalrunner-agent.basedir}/agent/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+    <!-- <copy todir="${cabalrunner-agent.output.dir}/bin">
+      <fileset dir="${module.cabalrunner-agent.basedir}/agent/bin">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy> -->
+  </target>
+  
+  <target name="compile.module.cabalrunner-agent.tests" depends="compile.module.cabalrunner-agent.production" description="compile module cabalrunner-agent; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cabalrunner-agent" description="cleanup module">
+    <delete dir="${cabalrunner-agent.output.dir}"/>
+    <delete dir="${cabalrunner-agent.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module cabalrunner-server -->
+  
+  <dirname property="module.cabalrunner-server.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.cabalrunner-server" value="${compiler.args}"/>
+  
+  <property name="cabalrunner-server.output.dir" value="${module.cabalrunner-server.basedir}/out/production/cabalrunner-server"/>
+  <property name="cabalrunner-server.testoutput.dir" value="${module.cabalrunner-server.basedir}/out/test/cabalrunner-server"/>
+  
+  <path id="cabalrunner-server.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cabalrunner-server.module.production.classpath">
+    <path refid="library.tomcat.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.teamcity_third-party_server.classpath"/>
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+  </path>
+  
+  <path id="cabalrunner-server.runtime.production.module.classpath">
+    <pathelement location="${cabalrunner-server.output.dir}"/>
+    <path refid="library.tomcat.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.teamcity_third-party_server.classpath"/>
+    <path refid="cabalrunner-common.runtime.production.module.classpath"/>
+  </path>
+  
+  <path id="cabalrunner-server.module.classpath">
+    <pathelement location="${cabalrunner-server.output.dir}"/>
+    <path refid="library.tomcat.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.teamcity_third-party_server.classpath"/>
+    <pathelement location="${cabalrunner-common.testoutput.dir}"/>
+    <pathelement location="${cabalrunner-common.output.dir}"/>
+  </path>
+  
+  <path id="cabalrunner-server.runtime.module.classpath">
+    <pathelement location="${cabalrunner-server.testoutput.dir}"/>
+    <pathelement location="${cabalrunner-server.output.dir}"/>
+    <path refid="library.tomcat.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_third-party_common.classpath"/>
+    <path refid="library.teamcity_third-party_server.classpath"/>
+    <path refid="cabalrunner-common.runtime.module.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cabalrunner-server">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cabalrunner-server">
+    <patternset refid="excluded.from.module.cabalrunner-server"/>
+  </patternset>
+  
+  <path id="cabalrunner-server.module.sourcepath">
+    <dirset dir="${module.cabalrunner-server.basedir}/server">
+      <include name="src"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cabalrunner-server" depends="compile.module.cabalrunner-server.production,compile.module.cabalrunner-server.tests" description="Compile module cabalrunner-server"/>
+  
+  <target name="compile.module.cabalrunner-server.production" depends="compile.module.cabalrunner-common" description="Compile module cabalrunner-server; production classes">
+    <mkdir dir="${cabalrunner-server.output.dir}"/>
+    <javac destdir="${cabalrunner-server.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.cabalrunner-server}"/>
+      <bootclasspath refid="cabalrunner-server.module.bootclasspath"/>
+      <classpath refid="cabalrunner-server.module.production.classpath"/>
+      <src refid="cabalrunner-server.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cabalrunner-server"/>
+    </javac>
+    
+    <copy todir="${cabalrunner-server.output.dir}">
+      <fileset dir="${module.cabalrunner-server.basedir}/server/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cabalrunner-server.basedir}/server/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cabalrunner-server.tests" depends="compile.module.cabalrunner-server.production" description="compile module cabalrunner-server; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cabalrunner-server" description="cleanup module">
+    <delete dir="${cabalrunner-server.output.dir}"/>
+    <delete dir="${cabalrunner-server.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.cabalrunner-common, clean.module.cabalrunner-agent, clean.module.cabalrunner-server" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.cabalrunner-common, compile.module.cabalrunner-agent, compile.module.cabalrunner-server" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
