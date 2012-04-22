@@ -1,0 +1,15 @@
+*.bak
+*.class
+*.hi
+*.iws
+*.o
+*.orig
+*.swp
+*.swo
+.DS_Store
+.git/
+build.properties
+build/
+dist/
+out/
+session.lock
