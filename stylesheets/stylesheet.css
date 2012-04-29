@@ -355,7 +355,13 @@ img {
   background: #212121;
 }
 
-
+.screenshot {
+  height: auto;
+  margin: 16px 0px 16px 0px;
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+  box-shadow: 3px 3px 7px #777;
+}
 
 /*******************************************************************************
 Small Device Styles
