@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Cabal TeamCity Build Runner Plugin</title>
+    <title>Cabal TeamCity Build Runner</title>
   </head>
 
   <body>
@@ -18,23 +18,21 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/fushunpoon/cabal-teamcity-plugin">Fork Me on GitHub</a>
 
-          <h1 id="project_title">Cabal TeamCity Build Runner Plugin</h1>
-          <h2 id="project_tagline">(Relatively) painless continuous integration for Haskell powered by TeamCity.</h2>
+          <h1 id="project_title">Cabal TeamCity Build Runner</h1>
+          <h2 id="project_tagline">(Relatively) painless continuous integration for Haskell.</h2>
 
-          <section id="downloads">
-            <a class="zip_download_link" href="https://github.com/downloads/fushunpoon/cabal-teamcity-plugin/cabalRunner.zip">Download latest release</a>
-          </section>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Description</h3>
+        <h3>What's this plugin all about?</h3>
 
 <p><a href="http://www.jetbrains.com/teamcity/" title="TeamCity main website (JetBrains)">TeamCity</a> is a continuous integration server. <a href="http://www.haskell.org/cabal/" title="Haskell Cabal main website">Cabal</a> is a build and
 package manager for <a href="http://www.haskell.org/" title="Haskell main website">Haskell</a> programs and libraries. Even though you can quite easily invoke a build of a Cabalised Haskell program by running <code>cabal-install</code> through the command line runner, common operations such as managing and editing of build parameters or digging through long build logs can be a bit of a pain.</p>
 
+        <h4>Features</h4>
 <p>Cabal TeamCity Build Runner Plugin presents a tighter integration of the Cabal build process
 with TeamCity with these features:</p>
 
@@ -46,17 +44,23 @@ with TeamCity with these features:</p>
 <li>Basic test reporting: see the number of successful and failed QuickCheck, QuickCheck 2 and HUnit test runs at a glance for when your test-suite built with Max Bolingbroke's (<a href="https://github.com/batterseapower" class="user-mention">@batterseapower</a>) wonderful <code>test-framework</code> (site <a href="http://batterseapower.github.com/test-framework/" title="Test framework make site">here</a>)</li>
 </ul><p>Finally! Quick and easy Continuous Integration for Haskell!</p>
 
-<h3>Installation</h3>
+<h3>Download and Install</h3>
 
-<p>To get the plugin running, simply download <code>cabalRunner.jar</code> from the <a href="https://github.com/fushunpoon/cabal-teamcity-plugin/downloads" title="Project download page">Downloads section</a>
-and drop it into your <code>~teamcity/.BuildServer/plugins</code> directory, where <code>~teamcity</code> is the home directory
-of the UNIX user used to run TeamCity Server, or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> directory under Windows.</p>
+<div id="downloads">
+    <a class="zip_download_link" href="https://github.com/downloads/fushunpoon/cabal-teamcity-plugin/cabalRunner.zip">Download latest release</a>
+</div>
 
-<h3>Upgrading</h3>
+<p>Grab <code>cabalRunner.zip</code> from above or the GitHub repository's <a
+        href="https://github.com/fushunpoon/cabal-teamcity-plugin/downloads"
+        title="Project download page">Downloads section</a>, and then drop it into
+    either <code>~teamcity/.BuildServer/plugins</code> directory (UNIX)
+    (where <code>~teamcity</code> is the home directory of the UNIX user used to run
+    TeamCity Server) or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> (Windows).</p>
 
-<p>When you would like to upgrade to a newer version of the plugin where a previous version of the
-plugin has been installed already, simply overwrite the existing <code>cabalRunner.zip</code> file with the latest
-released zip file.</p>
+<h3>Upgrade</h3>
+
+<p>Simply overwrite the existing <code>cabalRunner.zip</code> file with the latest released zip
+    file if you've already installed an earlier version of this plugin before.</p>
 
 <p>TeamCity Server sees the change, and will <em>automatically trigger an Agent-side upgrade</em> for the plugin.
 TeamCity Server however will not upgrade the plugin unless you restart it, so be sure to do that
@@ -79,6 +83,16 @@ section of the README. Thanks!</p>
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
+
+        <section id="images">
+            <a href="http://www.haskell.org/cabal/"><img src="images/Haskell-Cabal-dark.png" alt="Cabal"/></a>
+            <a href="http://www.haskell.org/haskellwiki/Haskell"><img src="images/Haskell.png" alt="Haskell"/></a>
+            <!--
+            TODO Obtain consent from JetBrains to use the TeamCity logo
+            <img src="images/JetBrains-TeamCity-512.png" alt="TeamCity" />
+            -->
+        </section>
+
         <p class="copyright">Cabal TeamCity Build Runner Plugin maintained by <a href="https://github.com/fushunpoon">fushunpoon</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
