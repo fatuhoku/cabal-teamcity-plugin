@@ -27,7 +27,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>What's this plugin all about?</h3>
+        <h3>About</h3>
 
 <p><a href="http://www.jetbrains.com/teamcity/" title="TeamCity main website (JetBrains)">TeamCity</a> is a continuous integration server. <a href="http://www.haskell.org/cabal/" title="Haskell Cabal main website">Cabal</a> is a build and
 package manager for <a href="http://www.haskell.org/" title="Haskell main website">Haskell</a> programs and libraries. Even though you can quite easily invoke a build of a Cabalised Haskell program by running <code>cabal-install</code> through the command line runner, common operations such as managing and editing of build parameters or digging through long build logs can be a bit of a pain.</p>
@@ -51,7 +51,7 @@ package manager for <a href="http://www.haskell.org/" title="Haskell main websit
 
         <h5><code>test-framework</code> integration for basic test reporting</h5>
         <img class="screenshot" src="images/test-reporting.png" alt="TeamCity build progress"/>
-        See the number of successful and failed QuickCheck, QuickCheck 2 and HUnit test runs at a glance for when your test-suite built with Max Bolingbroke's (<a href="https://github.com/batterseapower" class="user-mention">@batterseapower</a>) <a href="http://batterseapower.github.com/test-framework/">test-framework</a>.
+        See the number of successful and failed QuickCheck, QuickCheck 2, Smallcheck and/or HUnit test runs at a glance for test suites built with Max Bolingbroke's (<a href="https://github.com/batterseapower" class="user-mention">@batterseapower</a>) <a href="http://batterseapower.github.com/test-framework/">test-framework</a>.
 
 <br/>
 <br/>
@@ -63,26 +63,28 @@ Finally! Quick and easy Continuous Integration for Haskell!</p>
     <a class="zip_download_link" href="https://github.com/downloads/fushunpoon/cabal-teamcity-plugin/cabalRunner.zip">Download latest release</a>
 </div>
 
-<p>Grab <code>cabalRunner.zip</code> from above or the GitHub repository's <a
+<p>Grab <code>cabalRunner.zip</code> (latest release v0.5) from above (or alternatively, <a
         href="https://github.com/fushunpoon/cabal-teamcity-plugin/downloads"
-        title="Project download page">Downloads section</a>, and then drop it into
+        title="Project download page">here</a>) and drop it into
     either <code>~teamcity/.BuildServer/plugins</code> directory (UNIX)
     (where <code>~teamcity</code> is the home directory of the UNIX user used to run
-    TeamCity Server) or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> (Windows).</p>
+    TeamCity Server) or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> directory (Windows).</p>
     The exact locations of these depend on where you chose to install TeamCity.
 
 <h3>Upgrade</h3>
 
-<p>Simply overwrite the existing <code>cabalRunner.zip</code> file with the latest released zip
-    file if you've already installed an earlier version of this plugin before.</p>
+<p>Simply overwrite the existing <code>cabalRunner.zip</code> wherever you
+    installed the earlier version with the latest released zipfile.</p>
 
-<p>TeamCity Server sees the change, and will <em>automatically trigger an Agent-side upgrade</em> for the plugin.
-TeamCity Server however will not upgrade the plugin unless you restart it, so be sure to do that
-to ensure new version of the plugin becomes activated.</p>
+<p>TeamCity Server will see the updated zipfile and will <em>automatically
+        trigger an Agent-side upgrade</em> for the plugin. However, TeamCity
+    Server itself will not automatically switch to using the updated version of
+    the plugin until after a restart, so be sure restart TeamCity Server in order
+    to activate the latest version.</p>
 
 <hr>
 <h3>License</h3>
-This software is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>
+This software is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
 
 <h3>Contact</h3>
 
