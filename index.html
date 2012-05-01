@@ -45,8 +45,7 @@ package manager for <a href="http://www.haskell.org/" title="Haskell main websit
 
         <h5>Build progress reporting and hierarchical build log</h5>
         <img class="screenshot" src="images/build-progress-indicators.png" alt="TeamCity build progress"/>
-        TeamCity is notified of build
-        Structure is extracted from Cabal's build output lines,
+        TeamCity is notified of build events by monitoring Cabal's real time build output,
         allowing you to navigate it with TeamCity's standard Build Output page.
 
         <h5><code>test-framework</code> integration for basic test reporting</h5>
@@ -79,7 +78,7 @@ Finally! Quick and easy Continuous Integration for Haskell!</p>
 <p>TeamCity Server will see the updated zipfile and will <em>automatically
         trigger an Agent-side upgrade</em> for the plugin. However, TeamCity
     Server itself will not automatically switch to using the updated version of
-    the plugin until after a restart, so be sure restart TeamCity Server in order
+    the plugin until after a restart, so be sure to restart TeamCity Server in order
     to activate the latest version.</p>
 
 <hr>
@@ -88,15 +87,14 @@ This software is released under the <a href="http://www.opensource.org/licenses/
 
 <h3>Contact</h3>
 
-<p>Cabal TeamCity Build Runner Plugin began as a very small hobby project, and was implemented in the space of a few days. In the likely even you find an issue, ping me on <a href="mailto:fushunpoon@googlemail.com">fushunpoon@googlemail.com</a>. We'll see what we can do from there.</p>
+<p>Cabal TeamCity Build Runner Plugin began as a very small hobby project, and was implemented in the space of a few days. In the likely event you find an issue, ping me on <a href="mailto:fushunpoon@googlemail.com">fushunpoon@googlemail.com</a>. We'll see what we can do from there.</p>
 
 <h3>Contributing</h3>
 
 <p>Cabal TeamCity Build Runner Plugin is actually a derived work of <a href="https://github.com/mcmarkb/Teamcity-unity3d-build-runner-plugin">Teamcity Unity3d Build Runner plugin</a> so I wish to thank Mark Baker (<a href="https://github.com/mcmarkb" class="user-mention">@mcmarkb</a>) for letting his project be modified beyond recognition.</p>
 
-<p>Please fork this project and help me improve it! There is some work to be done yet for a totally seamless user experince. Start by looking at some of
-the <a href="https://github.com/fushunpoon/cabal-teamcity-plugin">known issues</a>
-section of the README. Thanks!</p>
+<p>Please fork this project and help me improve it! There is more work to be done for a totally seamless user experince. Start by looking at some of the <a href="https://github.com/fushunpoon/cabal-teamcity-plugin">known issues</a> section of the README. Thanks!</p>
+
       </section>
     </div>
 
