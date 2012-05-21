@@ -1,130 +1,123 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Cabal TeamCity Build Runner Plugin : (Relatively) painless continuous integration for Haskell powered by TeamCity." />
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+        <title>Cabal TeamCity Build Runner</title>
+    </head>
+    <body>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Cabal TeamCity Build Runner Plugin : (Relatively) painless continuous integration for Haskell powered by TeamCity." />
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/fushunpoon/cabal-teamcity-plugin">Fork Me on GitHub</a>
+                <h1 id="project_title">Cabal TeamCity Build Runner</h1>
+                <h2 id="project_tagline">(Relatively) painless continuous integration for Haskell.</h2>
+            </header>
+        </div>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                <h3>About</h3>
 
-    <title>Cabal TeamCity Build Runner</title>
-  </head>
+                <p><a href="http://www.jetbrains.com/teamcity/" title="TeamCity main website (JetBrains)">TeamCity</a> is a continuous integration server. <a href="http://www.haskell.org/cabal/" title="Haskell Cabal main website">Cabal</a> is a build and
+                package manager for <a href="http://www.haskell.org/" title="Haskell main website">Haskell</a> programs and libraries. Even though you can quite easily invoke a build of a Cabalised Haskell program by running <code>cabal-install</code> through the command line runner, common operations such as managing and editing of build parameters or digging through long build logs can be a bit of a pain.</p>
 
-  <body>
+                <h4>What you get...</h4>
+                <p>This plugin integrates the Cabal build process with TeamCity in the following ways:</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/fushunpoon/cabal-teamcity-plugin">Fork Me on GitHub</a>
+                <h6>Easy configuration</h6>
+                <img class="screenshot" src="images/cabal-config-page.png" alt="TeamCity build progress"/>
+                Set up and configure a Cabal runner Build Step from a standard Build Configuration page.
 
-          <h1 id="project_title">Cabal TeamCity Build Runner</h1>
-          <h2 id="project_tagline">(Relatively) painless continuous integration for Haskell.</h2>
+                <h6>Exposed agent properties</h6>
+                <code>cabal-install</code>'s location and version are exposed as Agent Parameters called
+                <code>cabal.path</code> and <code>cabal.version</code>, allowing you to discriminate between build agents by <code>cabal-install</code>'s version.
 
-        </header>
-    </div>
+                <h6>Build progress reporting and hierarchical build log</h6>
+                <img class="screenshot" src="images/build-progress-indicators.png" alt="TeamCity build progress"/>
+                TeamCity is notified of build events by monitoring Cabal's real time build output,
+                allowing you to navigate it with TeamCity's standard Build Output page.
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>About</h3>
+                <h6><code>test-framework</code> integration for basic test reporting</h6>
+                <img class="screenshot" src="images/test-reporting.png" alt="TeamCity build progress"/>
+                See the number of successful and failed QuickCheck, QuickCheck 2, Smallcheck and/or HUnit test runs at a glance for test suites built with Max Bolingbroke's (<a href="https://github.com/batterseapower" class="user-mention">@batterseapower</a>) <a href="http://batterseapower.github.com/test-framework/">test-framework</a>.
 
-<p><a href="http://www.jetbrains.com/teamcity/" title="TeamCity main website (JetBrains)">TeamCity</a> is a continuous integration server. <a href="http://www.haskell.org/cabal/" title="Haskell Cabal main website">Cabal</a> is a build and
-package manager for <a href="http://www.haskell.org/" title="Haskell main website">Haskell</a> programs and libraries. Even though you can quite easily invoke a build of a Cabalised Haskell program by running <code>cabal-install</code> through the command line runner, common operations such as managing and editing of build parameters or digging through long build logs can be a bit of a pain.</p>
+                <br/>
+                <br/>
+                Finally! Quick and easy Continuous Integration for Haskell!</p>
 
-        <h4>What you get...</h4>
-<p>This plugin integrates the Cabal build process with TeamCity in the following ways:</p>
+                <h3>Download and Install</h3>
 
-        <h6>Easy configuration</h6>
-        <img class="screenshot" src="images/cabal-config-page.png" alt="TeamCity build progress"/>
-        Set up and configure a Cabal runner Build Step from a standard Build Configuration page.
+                <div id="downloads">
+                    <a class="zip_download_link" href="https://github.com/downloads/fushunpoon/cabal-teamcity-plugin/cabalRunner.zip">Download latest release</a>
+                </div>
 
-        <h5>Exposed agent properties</h5>
-        <code>cabal-install</code>'s location and version are exposed as Agent Parameters called
-        <code>cabal.path</code> and <code>cabal.version</code>, allowing you to discriminate between build agents by <code>cabal-install</code>'s version.
+                <p>Grab <code>cabalRunner.zip</code> (latest release v0.5) from above (or alternatively, <a
+                    href="https://github.com/fushunpoon/cabal-teamcity-plugin/downloads"
+                    title="Project download page">here</a>) and drop it into
+                either <code>~teamcity/.BuildServer/plugins</code> directory (UNIX)
+                (where <code>~teamcity</code> is the home directory of the UNIX user used to run
+                TeamCity Server) or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> directory (Windows).</p>
+                The exact locations of these depend on where you chose to install TeamCity.
 
-        <h5>Build progress reporting and hierarchical build log</h5>
-        <img class="screenshot" src="images/build-progress-indicators.png" alt="TeamCity build progress"/>
-        TeamCity is notified of build events by monitoring Cabal's real time build output,
-        allowing you to navigate it with TeamCity's standard Build Output page.
+                <h3>Upgrade</h3>
 
-        <h5><code>test-framework</code> integration for basic test reporting</h5>
-        <img class="screenshot" src="images/test-reporting.png" alt="TeamCity build progress"/>
-        See the number of successful and failed QuickCheck, QuickCheck 2, Smallcheck and/or HUnit test runs at a glance for test suites built with Max Bolingbroke's (<a href="https://github.com/batterseapower" class="user-mention">@batterseapower</a>) <a href="http://batterseapower.github.com/test-framework/">test-framework</a>.
+                <p>Simply overwrite the existing <code>cabalRunner.zip</code> wherever you
+                installed the earlier version with the latest released zipfile.</p>
 
-<br/>
-<br/>
-Finally! Quick and easy Continuous Integration for Haskell!</p>
+                <p>TeamCity Server will see the updated zipfile and will <em>automatically
+                    trigger an Agent-side upgrade</em> for the plugin. However, TeamCity
+                Server itself will not automatically switch to using the updated version of
+                the plugin until after a restart, so be sure to restart TeamCity Server in order
+                to activate the latest version.</p>
 
-<h3>Download and Install</h3>
+                <hr>
+                <h3>License</h3>
+                This software is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
 
-<div id="downloads">
-    <a class="zip_download_link" href="https://github.com/downloads/fushunpoon/cabal-teamcity-plugin/cabalRunner.zip">Download latest release</a>
-</div>
+                <h3>Contact</h3>
 
-<p>Grab <code>cabalRunner.zip</code> (latest release v0.5) from above (or alternatively, <a
-        href="https://github.com/fushunpoon/cabal-teamcity-plugin/downloads"
-        title="Project download page">here</a>) and drop it into
-    either <code>~teamcity/.BuildServer/plugins</code> directory (UNIX)
-    (where <code>~teamcity</code> is the home directory of the UNIX user used to run
-    TeamCity Server) or the <code>&lt;TeamCity Data Directory&gt;/plugins</code> directory (Windows).</p>
-    The exact locations of these depend on where you chose to install TeamCity.
+                <p>Cabal TeamCity Build Runner Plugin began as a very small hobby project, and was implemented in the space of a few days. In the likely event you find an issue, ping me on <a href="mailto:fushunpoon@googlemail.com">fushunpoon@googlemail.com</a>. We'll see what we can do from there.</p>
 
-<h3>Upgrade</h3>
+                <h3>Contributing</h3>
 
-<p>Simply overwrite the existing <code>cabalRunner.zip</code> wherever you
-    installed the earlier version with the latest released zipfile.</p>
+                <p>Cabal TeamCity Build Runner Plugin is actually a derived work of <a href="https://github.com/mcmarkb/Teamcity-unity3d-build-runner-plugin">Teamcity Unity3d Build Runner plugin</a> so I wish to thank Mark Baker (<a href="https://github.com/mcmarkb" class="user-mention">@mcmarkb</a>) for letting his project be modified beyond recognition.</p>
 
-<p>TeamCity Server will see the updated zipfile and will <em>automatically
-        trigger an Agent-side upgrade</em> for the plugin. However, TeamCity
-    Server itself will not automatically switch to using the updated version of
-    the plugin until after a restart, so be sure to restart TeamCity Server in order
-    to activate the latest version.</p>
+                <p>Please fork this project and help me improve it! There is more work to be done for a totally seamless user experince. Start by looking at some of the <a href="https://github.com/fushunpoon/cabal-teamcity-plugin">known issues</a> section of the <code>README</code>. Thanks!</p>
 
-<hr>
-<h3>License</h3>
-This software is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
+            </section>
+        </div>
 
-<h3>Contact</h3>
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
 
-<p>Cabal TeamCity Build Runner Plugin began as a very small hobby project, and was implemented in the space of a few days. In the likely event you find an issue, ping me on <a href="mailto:fushunpoon@googlemail.com">fushunpoon@googlemail.com</a>. We'll see what we can do from there.</p>
+                <section id="images">
+                    <a href="http://www.haskell.org/cabal/"><img src="images/Haskell-Cabal-dark.png" alt="Cabal"/></a>
+                    <a href="http://www.haskell.org/haskellwiki/Haskell"><img src="images/Haskell.png" alt="Haskell"/></a>
+                    <a href="http://www.jetbrains.com/teamcity"><img src="images/JetBrains-TeamCity-512.png" alt="TeamCity" /></a>
+                </section>
 
-<h3>Contributing</h3>
+                <p class="copyright">Cabal TeamCity Build Runner plugin is maintained by <a href="https://github.com/fushunpoon">fushunpoon</a>.<br/>
+                "TeamCity" is a trademark of JetBrains s.r.o.<br/>
+                This plugin is not affiliated with JetBrains.</p>
+            </footer>
+        </div>
 
-<p>Cabal TeamCity Build Runner Plugin is actually a derived work of <a href="https://github.com/mcmarkb/Teamcity-unity3d-build-runner-plugin">Teamcity Unity3d Build Runner plugin</a> so I wish to thank Mark Baker (<a href="https://github.com/mcmarkb" class="user-mention">@mcmarkb</a>) for letting his project be modified beyond recognition.</p>
-
-<p>Please fork this project and help me improve it! There is more work to be done for a totally seamless user experince. Start by looking at some of the <a href="https://github.com/fushunpoon/cabal-teamcity-plugin">known issues</a> section of the README. Thanks!</p>
-
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-
-        <section id="images">
-            <a href="http://www.haskell.org/cabal/"><img src="images/Haskell-Cabal-dark.png" alt="Cabal"/></a>
-            <a href="http://www.haskell.org/haskellwiki/Haskell"><img src="images/Haskell.png" alt="Haskell"/></a>
-            <!--
-            TODO Obtain consent from JetBrains to use the TeamCity logo
-            <img src="images/JetBrains-TeamCity-512.png" alt="TeamCity" />
-            -->
-        </section>
-
-        <p class="copyright">Cabal TeamCity build runner plugin is maintained by <a href="https://github.com/fushunpoon">fushunpoon</a>.</p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
+        <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-31097788-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+            </script>
+            <script type="text/javascript">
+                try {
+                    var pageTracker = _gat._getTracker("UA-31097788-1");
+                    pageTracker._trackPageview();
+                } catch(err) {}
+</script>
 
 
   </body>
